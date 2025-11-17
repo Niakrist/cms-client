@@ -5,21 +5,21 @@ import { ICategory, ICategoryInput } from '@/shared/types/category.interface'
 class CategoryService {
   // на backend этого метода нет
   async getAll() {
-    const data = await axiosClassic<ICategory[]>({
+    const { data } = await axiosClassic<ICategory[]>({
       url: API_URL.categories(),
       method: 'GET'
     })
-    return data
+    return data || []
   }
   async getByStoreId(storeId: string) {
-    const data = await axiosWithAuth<ICategory[]>({
+    const { data } = await axiosWithAuth<ICategory[]>({
       url: API_URL.categories(`/by-storeId/${storeId}`),
       method: 'GET'
     })
-    return data
+    return data || []
   }
   async getById(id: string) {
-    const data = await axiosClassic<ICategory>({
+    const { data } = await axiosClassic<ICategory>({
       url: API_URL.categories(`/by-id/${id}`),
       method: 'GET'
     })
@@ -42,7 +42,7 @@ class CategoryService {
     return updatedCategory
   }
   async delete(categoryId: string) {
-    const data = await axiosWithAuth<ICategory>({
+    const { data } = await axiosWithAuth<ICategory>({
       url: API_URL.categories(`/${categoryId}`),
       method: 'DELETE'
     })

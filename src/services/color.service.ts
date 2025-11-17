@@ -5,21 +5,21 @@ import { IColor, IColorInput } from '@/shared/types/color.interface'
 
 class ColorServices {
   async getAll() {
-    const data = await axiosClassic<IColor[]>({
+    const { data } = await axiosClassic<IColor[]>({
       url: API_URL.colors(),
       method: 'GET'
     })
-    return data
+    return data || []
   }
   async getByStoreId(storeId: string) {
-    const data = await axiosWithAuth<IColor[]>({
+    const { data } = await axiosWithAuth<IColor[]>({
       url: API_URL.colors(`/by-storeId/${storeId}`),
       method: 'GET'
     })
-    return data
+    return data || []
   }
   async getById(colorId: string) {
-    const data = await axiosClassic<IColor>({
+    const { data } = await axiosClassic<IColor>({
       url: API_URL.colors(`/by-id/${colorId}`),
       method: 'GET'
     })
@@ -42,7 +42,7 @@ class ColorServices {
     return updatedColor
   }
   async delete(colorId: string) {
-    const data = await axiosWithAuth<IColor>({
+    const { data } = await axiosWithAuth<IColor>({
       url: API_URL.colors(`/${colorId}`),
       method: 'DELETE'
     })
