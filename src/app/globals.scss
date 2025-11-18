@@ -1,9 +1,6 @@
-@import 'tailwindcss';
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@use 'tailwindcss';
 
-// @import 'tw-animate-css/dist/tw-animate.css';
+// @use 'tw-animate-css/dist/tw-animate.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -123,6 +120,5 @@
   body {
     @apply bg-background text-foreground;
     font-family: GeistSans, sans-serif;
-    background-color: red;
   }
 }
