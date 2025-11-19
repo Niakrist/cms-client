@@ -10,36 +10,50 @@ import {
   CardContent,
   CardDescription,
   CardFooter,
+  CardHeader,
   CardTitle
 } from '@/components/ui/Card'
 import { Form } from '@/components/ui/form-element/Form'
 import { Button } from '@/components/ui/Button'
 import { AuthFields } from './AuthFields'
+import { Social } from './Social'
 
 export function Auth() {
   const [isReg, setIsReg] = useState<boolean>(false)
   const { onSubmit, form, isPending } = useAuthForm(isReg)
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.left}>
+    <div className={'min-h-screen grid grid-cols-1 lg:grid-cols-2'}>
+      <div
+        className={
+          'h-full bg-blue-600 hidden lg:flex items-center justify-center'
+        }
+      >
         <Image src='/images/auth.svg' alt='auth' width={200} height={200} />
       </div>
-      <div className={styles.right}>
-        <Card className={styles.card}>
-          <CardTitle>{isReg ? 'Создать аккаунт' : 'Войти в аккаунт'}</CardTitle>
+      <div className={'h-full flex flex-col items-center justify-center'}>
+        <Card
+          className={
+            'border-none p-6 flex flex-col items-center justify-center w-full[380px]'
+          }
+        >
+          <CardHeader className={'text-center pb-5'}>
+            <CardTitle>
+              {isReg ? 'Создать аккаунт' : 'Войти в аккаунт'}
+            </CardTitle>
+          </CardHeader>
           <CardDescription>
             Войдите или создайте учетную запись, чтобы оформлять покупки!
           </CardDescription>
-          <CardContent className={styles.content}>
+          <CardContent className={'p-0 w-full'}>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <AuthFields form={form} isPending={isPending} isReg={isReg} />
                 <Button disabled={isPending}>Продолжить</Button>
               </form>
             </Form>
-            {/* Social */}
+            <Social />
           </CardContent>
-          <CardFooter className={styles.footer}>
+          <CardFooter className={'p-0 mt-4 text-sm text-muted-foreground'}>
             {isReg ? 'Уже есть аккаунт?' : 'Еще нет аккаунта'}
             <Button onClick={() => setIsReg(!isReg)}>
               {isReg ? 'Войти' : 'Создать'}
