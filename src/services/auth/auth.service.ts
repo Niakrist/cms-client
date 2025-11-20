@@ -6,7 +6,7 @@ import { removeTokenFromStorage, saveTokenStorage } from './auth-token.service'
 class AuthService {
   async main(type: 'login' | 'register', data: IAuthForm) {
     const response = await axiosClassic<IAuthResponse>({
-      url: API_URL.auth(`${type}`),
+      url: API_URL.auth(`/${type}`),
       method: 'POST',
       data
     })
