@@ -12,6 +12,7 @@ export function Social() {
   return (
     <div className={'space-y-3  w-full mt-5'}>
       <Button
+        className='w-full'
         variant='outline'
         onClick={() => router.push(`${SERVER_URL}/auth/google`)}
       >
@@ -19,6 +20,7 @@ export function Social() {
         Продолжить через Google
       </Button>
       <Button
+        className='w-full'
         variant='outline'
         onClick={() => router.push(`${SERVER_URL}/auth/yandex`)}
       >

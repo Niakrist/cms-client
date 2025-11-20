@@ -33,29 +33,38 @@ export function Auth() {
       <div className={'h-full flex flex-col items-center justify-center'}>
         <Card
           className={
-            'border-none p-6 flex flex-col items-center justify-center w-full[380px]'
+            'border-none p-6 flex flex-col items-center justify-center w-full-[380px]'
           }
         >
-          <CardHeader className={'text-center pb-5'}>
-            <CardTitle>
+          <CardHeader className={'text-center pb-5 w-full'}>
+            <CardTitle className='pb-1 text-3xl font-bold;'>
               {isReg ? 'Создать аккаунт' : 'Войти в аккаунт'}
             </CardTitle>
+            <CardDescription>
+              Войдите или создайте учетную запись, чтобы оформлять покупки!
+            </CardDescription>
           </CardHeader>
-          <CardDescription>
-            Войдите или создайте учетную запись, чтобы оформлять покупки!
-          </CardDescription>
           <CardContent className={'p-0 w-full'}>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)}>
+              <form
+                className='space-y-5'
+                onSubmit={form.handleSubmit(onSubmit)}
+              >
                 <AuthFields form={form} isPending={isPending} isReg={isReg} />
-                <Button disabled={isPending}>Продолжить</Button>
+                <Button className='w-full' disabled={isPending}>
+                  Продолжить
+                </Button>
               </form>
             </Form>
             <Social />
           </CardContent>
           <CardFooter className={'p-0 mt-4 text-sm text-muted-foreground'}>
-            {isReg ? 'Уже есть аккаунт?' : 'Еще нет аккаунта'}
-            <Button onClick={() => setIsReg(!isReg)}>
+            {isReg ? 'Уже есть аккаунт?' : 'Еще нет аккаунта?'}
+            <Button
+              variant='ghost'
+              className='ml-1 text-sky-600'
+              onClick={() => setIsReg(!isReg)}
+            >
               {isReg ? 'Войти' : 'Создать'}
             </Button>
           </CardFooter>
