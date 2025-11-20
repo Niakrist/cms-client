@@ -1,4 +1,4 @@
-import { PUBLIC_URL } from '@/config/url.config'
+import { DASHBOARD_URL } from '@/config/url.config'
 import { authService } from '@/services/auth/auth.service'
 import { IAuthForm } from '@/shared/types/auth.interface'
 import { useMutation } from '@tanstack/react-query'
@@ -24,7 +24,7 @@ export const useAuthForm = (isReg: boolean) => {
     onSuccess() {
       form.reset()
       toast.success('Успешная авторизация')
-      router.replace(PUBLIC_URL.home())
+      router.replace(DASHBOARD_URL.home())
     },
     onError(error) {
       if (error.message) {

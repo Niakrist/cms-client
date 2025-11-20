@@ -28,7 +28,7 @@ export function Auth() {
           'h-full bg-blue-600 hidden lg:flex items-center justify-center'
         }
       >
-        <Image src='/images/auth.svg' alt='auth' width={200} height={200} />
+        <Image src='/images/logo.svg' alt='auth' width={200} height={200} />
       </div>
       <div className={'h-full flex flex-col items-center justify-center'}>
         <Card
@@ -60,13 +60,12 @@ export function Auth() {
           </CardContent>
           <CardFooter className={'p-0 mt-4 text-sm text-muted-foreground'}>
             {isReg ? 'Уже есть аккаунт?' : 'Еще нет аккаунта?'}
-            <Button
-              variant='ghost'
+            <button
               className='ml-1 text-sky-600'
               onClick={() => setIsReg(!isReg)}
             >
               {isReg ? 'Войти' : 'Создать'}
-            </Button>
+            </button>
           </CardFooter>
         </Card>
       </div>
