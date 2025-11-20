@@ -16,7 +16,7 @@ export function Social() {
         variant='outline'
         onClick={() => router.push(`${SERVER_URL}/auth/google`)}
       >
-        <FcGoogle />
+        <FcGoogle className='size-5 mr-2' />
         Продолжить через Google
       </Button>
       <Button
