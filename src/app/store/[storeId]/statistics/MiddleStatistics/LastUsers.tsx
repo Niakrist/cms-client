@@ -1,5 +1,3 @@
-import React from 'react'
-import styles from './MiddleStatistics.module.scss'
 import { ILastUsers } from '@/shared/types/statistics.interfzce'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import Image from 'next/image'

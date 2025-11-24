@@ -1,6 +1,3 @@
-import React from 'react'
-
-import styles from './MiddleStatistics.module.scss'
 import { IMonthlySales } from '@/shared/types/statistics.interfzce'
 import {
   ChartContainer,
