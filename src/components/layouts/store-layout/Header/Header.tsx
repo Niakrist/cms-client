@@ -8,6 +8,7 @@ import { DASHBOARD_URL } from '@/config/url.config'
 import Image from 'next/image'
 import { Loader } from '@/components/ui/Loader'
 import Link from 'next/link'
+import { StoreSwitcher } from './StoreSwitcher'
 
 export function Header() {
   const { user, isLoading } = useProfile()
@@ -20,6 +21,7 @@ export function Header() {
         ) : (
           user && (
             <>
+              <StoreSwitcher items={user.stores} />
               <Link href={DASHBOARD_URL.home()}>
                 <Image
                   className='rounded-full'
