@@ -20,14 +20,19 @@ export async function middleware(request: NextRequest) {
     // Не изменяет исходный запрос
     // Позволяет продолжить стандартную обработку страницы
     // Если НЕ авторизован - разрешаем доступ к странице авторизации /auth if (isAuthPage)
+    // Не авторизован на /auth → разрешаем доступ (ВЫХОД ИЗ ФУНКЦИИ!)
     return NextResponse.next()
   }
   if (refreshToken === undefined) {
     // Если токена нет - редирект на страницу авторизации
+    // Этот код выполняется ТОЛЬКО для НЕ-auth страниц!
     return NextResponse.redirect(new URL(PUBLIC_URL.auth(), request.url))
   }
+  // есть токен и находимся на защищенной странице
+  return NextResponse.next()
 }
 // Middleware применяется к:
 export const config = {
   matcher: ['/dashboard/:path*', '/store/:path*', '/auth']
 }
+

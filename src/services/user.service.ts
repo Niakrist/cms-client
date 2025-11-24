@@ -4,11 +4,11 @@ import { IUser } from '@/shared/types/user.interface'
 
 class UserService {
   async getProfile() {
-    const user = await axiosWithAuth<IUser>({
+    const { data } = await axiosWithAuth<IUser>({
       url: API_URL.users('/profile'),
       method: 'GET'
     })
-    return user
+    return data
   }
   async toggleFavorite(productId: string) {
     return axiosWithAuth<IUser>({
