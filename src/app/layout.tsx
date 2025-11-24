@@ -20,7 +20,6 @@ export default function RootLayout({
   return (
     <html lang='ru'>
       <body className={GeistSans.variable}>
-        some text
         <Providers>{children}</Providers>
       </body>
     </html>
