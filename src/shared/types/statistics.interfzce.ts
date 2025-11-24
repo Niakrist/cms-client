@@ -19,6 +19,6 @@ export interface ILastUsers {
 }
 
 export interface IMiddleStatistics {
-  monthlySales: IMainStatistics[]
-  lastUsers: ILastUsers[]
+  monthlySales: IMonthlySales[]
+  lastUser: ILastUsers[]
 }

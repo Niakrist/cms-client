@@ -1,5 +1,18 @@
+'use client'
 import React from 'react'
 
+import styles from './Store.module.scss'
+import { Heading } from '@/components/ui/Heading'
+import { MainStatistics } from '../statistics/MainStatistics/MainStatistics'
+import { MiddleStatistics } from '../statistics/MiddleStatistics/MiddleStatistics'
+
 export function Store() {
-  return <div>Store</div>
+  return (
+    <div className='p-6'>
+      <Heading title='Статистика' />
+
+      <MainStatistics />
+      <MiddleStatistics />
+    </div>
+  )
 }
