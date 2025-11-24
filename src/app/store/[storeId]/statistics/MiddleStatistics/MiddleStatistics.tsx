@@ -1,7 +1,4 @@
 import { useGetStatistics } from '@/hooks/queries/statistics/useGetStatistics'
-import React from 'react'
-
-import styles from './MiddleStatistics.module.scss'
 import { Overview } from './Overview'
 import { LastUsers } from './LastUsers'
 
