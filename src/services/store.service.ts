@@ -8,8 +8,8 @@ import {
 
 class StoreService {
   async getById(storeId: string) {
-    const data = await axiosWithAuth<IStore>({
-      url: API_URL.stores(storeId),
+    const { data } = await axiosWithAuth<IStore>({
+      url: API_URL.stores(`/by-id/${storeId}`),
       method: 'GET'
     })
     return data

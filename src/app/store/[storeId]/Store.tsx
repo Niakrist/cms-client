@@ -1,10 +1,7 @@
 'use client'
-import React from 'react'
-
-import styles from './Store.module.scss'
 import { Heading } from '@/components/ui/Heading'
-import { MainStatistics } from '../statistics/MainStatistics/MainStatistics'
-import { MiddleStatistics } from '../statistics/MiddleStatistics/MiddleStatistics'
+import { MainStatistics } from './statistics/MainStatistics/MainStatistics'
+import { MiddleStatistics } from './statistics/MiddleStatistics/MiddleStatistics'
 
 export function Store() {
   return (
