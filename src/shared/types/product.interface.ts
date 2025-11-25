@@ -13,6 +13,7 @@ export interface IProduct {
   reviews: IReview[]
   color: IColor
   store: IStore
+  storeId: string
 }
 
 // Omit создает новый тип, исключая указанные свойства из исходного типа.
