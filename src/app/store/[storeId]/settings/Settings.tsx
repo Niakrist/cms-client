@@ -30,8 +30,6 @@ export function Settings() {
     }
   })
 
-  console.log('Settings store: ', store)
-
   const onSubmit: SubmitHandler<IStoreEdit> = data => {
     updateStore(data)
   }
