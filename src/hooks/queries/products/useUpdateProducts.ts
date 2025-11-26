@@ -19,8 +19,8 @@ export const useUpdateProducts = () => {
       onSuccess() {
         queryClient.invalidateQueries({
           queryKey: ['get products for store dashboard']
-        }),
-          toast.success('Товар успешно изменен')
+        })
+        toast.success('Товар успешно изменен')
       },
       onError() {
         toast.error('Не удалось изменить товар')
