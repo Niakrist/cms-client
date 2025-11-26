@@ -19,7 +19,10 @@ export interface IProduct {
 // Omit создает новый тип, исключая указанные свойства из исходного типа.
 // Берёт все свойства, кроме 'id' | 'reviews' | 'store' | 'category' | 'color' из IProduct
 export interface IProductInput
-  extends Omit<IProduct, 'id' | 'reviews' | 'store' | 'category' | 'color'> {
+  extends Omit<
+    IProduct,
+    'id' | 'reviews' | 'store' | 'category' | 'color' | 'storeId'
+  > {
   categoryId: string
   colorId: string
 }
