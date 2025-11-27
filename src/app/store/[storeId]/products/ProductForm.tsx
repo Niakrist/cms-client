@@ -7,6 +7,7 @@ import {
   FormLabel,
   FormMessage
 } from '@/components/ui/form-element/Form'
+import { ImageUpload } from '@/components/ui/form-element/ImageUpload/ImageUpload'
 import { Input } from '@/components/ui/form-element/Input'
 import { Heading } from '@/components/ui/Heading'
 import { ConfirmModal } from '@/components/ui/modals/ConfirmModal'
@@ -92,7 +93,26 @@ export function ProductForm({
           className='space-y-6 h-full'
           onSubmit={form.handleSubmit(onSubmit)}
         >
-          {/* Images upload */}
+          <FormField
+            control={form.control}
+            name='images'
+            rules={{
+              required: 'Загрузите хотябы одну картинку'
+            }}
+            render={({ field }) => (
+              <FormItem className='mt-4'>
+                <FormLabel>Картинки</FormLabel>
+                <FormControl className='w-full'>
+                  <ImageUpload
+                    isDisabled={isLoadingProducts || isLoadingUpdateProduct}
+                    onChange={field.onChange}
+                    value={field.value}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
           <div className='grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4'>
             <FormField
