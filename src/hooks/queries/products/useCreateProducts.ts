@@ -17,12 +17,12 @@ export const useCreateProducts = () => {
     mutationFn: (data: IProductInput) => {
       return productService.create(params.storeId, data)
     },
-    onSuccess(data) {
+    onSuccess() {
       queryClient.invalidateQueries({
         queryKey: ['get products for store dashboard']
       })
       toast.success('Товар успешно создан')
-      router.push(STORE_URL.products(data.id))
+      router.push(STORE_URL.products(params.storeId))
     },
     onError() {
       toast.error('Ошибка при создании товара')

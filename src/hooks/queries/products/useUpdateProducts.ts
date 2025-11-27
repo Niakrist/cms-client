@@ -3,23 +3,24 @@ import { STORE_URL } from '@/config/url.config'
 import { productService } from '@/services/product.service'
 import { IProductInput } from '@/shared/types/product.interface'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 import toast from 'react-hot-toast'
 
 export const useUpdateProducts = () => {
   const params = useParams<{ productId: string }>()
-
+  const push = useRouter()
   const queryClient = useQueryClient()
   const { mutate: updateProduct, isError: isLoadingUpdateProduct } =
     useMutation({
       mutationKey: ['update product'],
       mutationFn: (data: IProductInput) =>
         productService.update(params.productId, data),
-      onSuccess() {
+      onSuccess(data) {
         queryClient.invalidateQueries({
           queryKey: ['get products for store dashboard']
         })
+        push.push(STORE_URL.products(data.storeId))
         toast.success('Товар успешно изменен')
       },
       onError() {

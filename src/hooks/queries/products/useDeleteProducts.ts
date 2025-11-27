@@ -1,6 +1,5 @@
 'use client'
-
-import { PUBLIC_URL, STORE_URL } from '@/config/url.config'
+import { STORE_URL } from '@/config/url.config'
 import { productService } from '@/services/product.service'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useParams, useRouter } from 'next/navigation'
