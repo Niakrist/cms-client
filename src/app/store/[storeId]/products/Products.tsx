@@ -3,13 +3,13 @@ import { useGetProducts } from '@/hooks/queries/products/useGetProducts'
 import { useParams } from 'next/navigation'
 import { IProductColumn, productColumns } from './ProductsColumn'
 import { formatPrice } from '@/lib/string/format-price'
-import { DataTableLoading } from '@/components/ui/data-loading/DataTableLoading'
+import { DataTableLoading } from '@/components/ui/data-table/DataTableLoading'
 import { Heading } from '@/components/ui/Heading'
 import Link from 'next/link'
 import { STORE_URL } from '@/config/url.config'
 import { Button } from '@/components/ui/Button'
 import { Plus } from 'lucide-react'
-import { DataTable } from '@/components/ui/data-loading/DataTable'
+import { DataTable } from '@/components/ui/data-table/DataTable'
 
 export function Products() {
   const params = useParams<{ storeId: string }>()
@@ -24,8 +24,6 @@ export function Products() {
         storeId: product.storeId
       }))
     : []
-
-  console.log(formattedData)
 
   return (
     <div className='p-6'>
