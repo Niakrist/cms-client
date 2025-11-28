@@ -12,7 +12,7 @@ export function useCreateColor() {
   const { push } = useRouter()
   const queryClient = useQueryClient()
 
-  const { mutate: colorCreate, isPending: isLoadinColorCreate } = useMutation({
+  const { mutate: colorCreate, isPending: isLoadingColorCreate } = useMutation({
     mutationKey: ['create color'],
     mutationFn: (data: IColorInput) => {
       return colorServices.create(params.storeId, data)
@@ -30,7 +30,7 @@ export function useCreateColor() {
   })
 
   return useMemo(
-    () => ({ colorCreate, isLoadinColorCreate }),
-    [colorCreate, isLoadinColorCreate]
+    () => ({ colorCreate, isLoadingColorCreate }),
+    [colorCreate, isLoadingColorCreate]
   )
 }
