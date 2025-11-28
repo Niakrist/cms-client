@@ -26,7 +26,6 @@ export function ImageUpload({
     <div>
       <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-5'>
         {value.map(url => {
-          console.log('url:', url)
           return (
             <div
               key={url}

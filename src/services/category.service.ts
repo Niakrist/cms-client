@@ -16,6 +16,7 @@ class CategoryService {
       url: API_URL.categories(`/by-storeId/${storeId}`),
       method: 'GET'
     })
+
     return data || []
   }
   async getById(id: string) {

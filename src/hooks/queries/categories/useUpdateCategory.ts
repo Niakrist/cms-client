@@ -18,12 +18,12 @@ export function useUpdateCategory() {
       mutationFn: (data: ICategoryInput) => {
         return categoryService.update(data, params.categoryId)
       },
-      onSuccess() {
+      onSuccess(data) {
         queryClient.invalidateQueries({
           queryKey: ['get catgories for store dashboard']
         })
         toast.success('Категория успешно обновлена')
-        push(STORE_URL.categories(params.categoryId))
+        push(STORE_URL.categories(data.storeId))
       },
       onError() {
         toast.error('Ошибка при обнавлении категории')
