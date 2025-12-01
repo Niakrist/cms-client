@@ -1,0 +1,7 @@
+.footer {
+  @apply border-t mt-16;
+
+  > .wrapper {
+    @apply mx-auto py-5 text-center;
+  }
+}
