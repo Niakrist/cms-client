@@ -24,7 +24,7 @@ export const colorsColumn: ColumnDef<IColor>[] = [
             column.toggleSorting(column.getIsSorted() === 'asc')
           }}
         >
-          Название <ArrowUpDown className='ml-2 size-4' />{' '}
+          Название <ArrowUpDown className='ml-2 size-4' />
         </Button>
       )
     }
@@ -37,19 +37,32 @@ export const colorsColumn: ColumnDef<IColor>[] = [
           variant='ghost'
           onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
         >
-          Цвет <ArrowUpDown className='ml-2 size-4' />{' '}
+          Значение <ArrowUpDown className='ml-2 size-4' />
         </Button>
       )
     },
     cell: ({ row }) => (
       <div className='flex items-center gap-x-3'>
         <div
-          className='size-5 rounded-full border'
+          className='size-6 rounded-full border'
           style={{ backgroundColor: row.original.value }}
         />
         {row.original.name}
       </div>
     )
+  },
+  {
+    accessorKey: 'createdAt',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant='ghost'
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Дата создания <ArrowUpDown className='ml-2 size-4' />
+        </Button>
+      )
+    }
   },
   {
     accessorKey: 'actions',
