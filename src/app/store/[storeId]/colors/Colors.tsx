@@ -25,8 +25,6 @@ export function Colors() {
       }))
     : []
 
-  console.log('isLoading: ', isLoading)
-  console.log('colors?.length: ', colors?.length)
   return (
     <div className='p-6'>
       {isLoading || !colors?.length ? (

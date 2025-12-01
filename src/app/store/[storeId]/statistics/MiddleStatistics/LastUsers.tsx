@@ -8,7 +8,6 @@ interface ILastUsersProps {
 }
 
 export function LastUsers({ data }: ILastUsersProps) {
-  console.log('data ', data)
   return (
     <Card>
       <CardHeader

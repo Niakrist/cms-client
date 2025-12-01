@@ -7,15 +7,20 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/DropdownMenu'
 import { STORE_URL } from '@/config/url.config'
-import { IColor } from '@/shared/types/color.interface'
-
 import { ColumnDef } from '@tanstack/react-table'
 import { ArrowUpDown, MoreHorizontal, Pencil } from 'lucide-react'
 import Link from 'next/link'
 
-export const colorsColumn: ColumnDef<IColor>[] = [
+export interface ICategoryColumn {
+  id: string
+  title: string
+  description: string
+  storeId: string
+}
+
+export const categoryColumn: ColumnDef<ICategoryColumn>[] = [
   {
-    accessorKey: 'name',
+    accessorKey: 'title',
     header: ({ column }) => {
       return (
         <Button
@@ -30,41 +35,19 @@ export const colorsColumn: ColumnDef<IColor>[] = [
     }
   },
   {
-    accessorKey: 'value',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant='ghost'
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Цвет <ArrowUpDown className='ml-2 size-4' />{' '}
-        </Button>
-      )
-    },
-    cell: ({ row }) => (
-      <div className='flex items-center gap-x-3'>
-        <div
-          className='size-5 rounded-full border'
-          style={{ backgroundColor: row.original.value }}
-        />
-        {row.original.name}
-      </div>
-    )
-  },
-  {
     accessorKey: 'actions',
     header: 'Действия',
     cell: ({ row }) => (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant='ghost' className='size-8 p-0'>
-            <MoreHorizontal className='size-4' />
+            <MoreHorizontal size={4} />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align='end'>
           <DropdownMenuLabel>Действия</DropdownMenuLabel>
           <Link
-            href={STORE_URL.colorEdit(row.original.storeId, row.original.id)}
+            href={STORE_URL.categoryEdit(row.original.storeId, row.original.id)}
           >
             <DropdownMenuItem>
               <Pencil className='s-4 mr-2' /> Изменить
