@@ -69,48 +69,50 @@ export function ColorForm({ color }: IColorFormProps) {
           className='space-y-6 h-full'
           onSubmit={form.handleSubmit(onSubmit)}
         >
-          <FormField
-            control={form.control}
-            name='name'
-            rules={{
-              required: 'Поле название цвета обязательное'
-            }}
-            render={({ field }) => (
-              <FormItem className='mt-4'>
-                <FormLabel>Цвет</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder='Название цвета'
-                    type='text'
-                    disabled={isLoadingColorCreate || isLoadingUpdateColor}
-                    autoComplete='off'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className='grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4'>
+            <FormField
+              control={form.control}
+              name='name'
+              rules={{
+                required: 'Поле название цвета обязательное'
+              }}
+              render={({ field }) => (
+                <FormItem className='mt-4'>
+                  <FormLabel>Цвет</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder='Название цвета'
+                      type='text'
+                      disabled={isLoadingColorCreate || isLoadingUpdateColor}
+                      autoComplete='off'
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-          <FormField
-            control={form.control}
-            name='value'
-            rules={{ required: 'Значение цвета обязательное поле' }}
-            render={({ field }) => (
-              <FormItem className='mt-4'>
-                <FormLabel>Знаение цвета</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder='Значение цвета'
-                    type='text'
-                    disabled={isLoadingColorCreate || isLoadingUpdateColor}
-                    autoComplete='off'
-                    {...field}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
+            <FormField
+              control={form.control}
+              name='value'
+              rules={{ required: 'Значение цвета обязательное поле' }}
+              render={({ field }) => (
+                <FormItem className='mt-4'>
+                  <FormLabel>Знаение цвета</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder='Значение цвета'
+                      type='text'
+                      disabled={isLoadingColorCreate || isLoadingUpdateColor}
+                      autoComplete='off'
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+          </div>
           <Button
             variant='primary'
             disabled={isLoadingColorCreate || isLoadingUpdateColor}

@@ -7,18 +7,12 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/DropdownMenu'
 import { STORE_URL } from '@/config/url.config'
+import { ICategory } from '@/shared/types/category.interface'
 import { ColumnDef } from '@tanstack/react-table'
 import { ArrowUpDown, MoreHorizontal, Pencil } from 'lucide-react'
 import Link from 'next/link'
 
-export interface ICategoryColumn {
-  id: string
-  title: string
-  description: string
-  storeId: string
-}
-
-export const categoryColumn: ColumnDef<ICategoryColumn>[] = [
+export const categoryColumn: ColumnDef<ICategory>[] = [
   {
     accessorKey: 'title',
     header: ({ column }) => {
@@ -30,6 +24,19 @@ export const categoryColumn: ColumnDef<ICategoryColumn>[] = [
           }}
         >
           Название <ArrowUpDown className='ml-2 size-4' />{' '}
+        </Button>
+      )
+    }
+  },
+  {
+    accessorKey: 'createdAt',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant='ghost'
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Дата создания <ArrowUpDown className='ml-2 size-4' />
         </Button>
       )
     }

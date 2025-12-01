@@ -10,6 +10,7 @@ import {
 import { Input } from '@/components/ui/form-element/Input'
 import { Heading } from '@/components/ui/Heading'
 import { ConfirmModal } from '@/components/ui/modals/ConfirmModal'
+import { Textarea } from '@/components/ui/Textarea'
 import { useCreateCategory } from '@/hooks/queries/categories/useCreateCategory'
 import { useDeleteCategory } from '@/hooks/queries/categories/useDeleteCategory'
 import { useUpdateCategory } from '@/hooks/queries/categories/useUpdateCategory'
@@ -70,30 +71,31 @@ export function CategoryForm({ category }: ICategoryFormProps) {
           className='space-y-6 h-full'
           onSubmit={form.handleSubmit(onSubmit)}
         >
-          <FormField
-            control={form.control}
-            name='title'
-            rules={{
-              required: 'Поле название категории обязательное'
-            }}
-            render={({ field }) => (
-              <FormItem className='mt-4'>
-                <FormLabel>Категория</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder='Название категории'
-                    type='text'
-                    disabled={
-                      isLoadingCreateCategory || isLoadingUpdateCategory
-                    }
-                    autoComplete='off'
-                    {...field}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-
+          <div className='grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4'>
+            <FormField
+              control={form.control}
+              name='title'
+              rules={{
+                required: 'Поле название категории обязательное'
+              }}
+              render={({ field }) => (
+                <FormItem className='mt-4'>
+                  <FormLabel>Категория</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder='Название категории'
+                      type='text'
+                      disabled={
+                        isLoadingCreateCategory || isLoadingUpdateCategory
+                      }
+                      autoComplete='off'
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={form.control}
             name='description'
@@ -104,19 +106,19 @@ export function CategoryForm({ category }: ICategoryFormProps) {
               <FormItem className='mt-4'>
                 <FormLabel>Описание</FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
+                    {...field}
                     placeholder='Описание категории'
-                    type='text'
                     disabled={
                       isLoadingCreateCategory || isLoadingUpdateCategory
                     }
                     autoComplete='off'
-                    {...field}
                   />
                 </FormControl>
               </FormItem>
             )}
           />
+
           <Button
             variant='primary'
             disabled={isLoadingCreateCategory || isLoadingUpdateCategory}
