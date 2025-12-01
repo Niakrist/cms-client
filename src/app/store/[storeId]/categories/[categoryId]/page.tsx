@@ -3,7 +3,7 @@ import CategoryEdit from './CategoryEdit'
 import { NO_INDEX_PAGE } from '@/constants/seo.constants'
 
 export const metadata: Metadata = {
-  title: 'Изменить категорию',
+  title: 'Настройка категории',
   ...NO_INDEX_PAGE
 }
 
