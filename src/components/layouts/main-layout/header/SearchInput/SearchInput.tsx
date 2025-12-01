@@ -10,7 +10,7 @@ export function SearchInput() {
   const [searchTerm, setSearchTerm] = useState<string>('')
   const router = useRouter()
   return (
-    <div className='flex items-center relative'>
+    <div className='flex items-center relative  '>
       <Input
         className='rounded-lg rounded-r-none focus-visible:ring-transparent pr-8'
         placeholder='Поиск товара'

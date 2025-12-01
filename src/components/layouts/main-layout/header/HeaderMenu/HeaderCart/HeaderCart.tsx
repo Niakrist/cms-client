@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/Button'
-import { Heading } from '@/components/ui/Heading'
 import {
   Sheet,
   SheetContent,
