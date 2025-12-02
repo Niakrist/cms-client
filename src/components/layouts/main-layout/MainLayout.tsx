@@ -4,7 +4,7 @@ import { Footer } from './footer/Footer'
 
 export function MainLayout({ children }: PropsWithChildren<unknown>) {
   return (
-    <div className='flex flex-col h-screen'>
+    <div className='flex flex-col h-full'>
       <Header />
       <main className='h-full flex-1 mx-5 lg:mx-14'>{children}</main>
       <Footer />
