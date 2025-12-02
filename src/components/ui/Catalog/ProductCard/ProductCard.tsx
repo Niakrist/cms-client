@@ -13,7 +13,11 @@ export function ProductCard({ product }: IProductCardProps) {
       <Link href={PUBLIC_URL.product(product.id)}>
         <Image
           className='rounded-lg h-[300px] object-contain'
-          src={product.images[0]}
+          src={
+            product.images[0].includes('/uploads/products/')
+              ? product.images[0]
+              : `/uploads/products/${product.images[0]}`
+          }
           alt={product.title}
           width={300}
           height={300}
