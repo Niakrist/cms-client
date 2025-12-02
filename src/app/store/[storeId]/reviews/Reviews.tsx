@@ -22,7 +22,7 @@ export function Reviews() {
 
   return (
     <div className='p-6'>
-      {isLoadingReviews || !reviews?.length ? (
+      {isLoadingReviews ? (
         <DataTableLoading />
       ) : (
         <>
