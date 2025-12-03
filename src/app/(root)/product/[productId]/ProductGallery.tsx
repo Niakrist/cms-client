@@ -12,7 +12,11 @@ export function ProductGallery({ product }: IProductGalleryProps) {
   return (
     <div>
       <Image
-        src={product.images[currentIndex]}
+        src={
+          product.images[currentIndex].includes('/uploads/products/')
+            ? product.images[currentIndex]
+            : `/uploads/products/${product.images[currentIndex]}`
+        }
         alt={product.title}
         width={500}
         height={500}
@@ -28,7 +32,16 @@ export function ProductGallery({ product }: IProductGalleryProps) {
               index === currentIndex ? 'border-black' : 'border-transparent'
             )}
           >
-            <Image src={img} width={100} height={100} alt={product.title} />
+            <Image
+              src={
+                img.includes('/uploads/products/')
+                  ? img
+                  : `/uploads/products/${img}`
+              }
+              width={100}
+              height={100}
+              alt={product.title}
+            />
           </button>
         ))}
       </div>
