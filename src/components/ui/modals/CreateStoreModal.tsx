@@ -37,7 +37,7 @@ export function CreateStoreModal({ children }: PropsWithChildren<unknown>) {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger className='w-full'>{children}</DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Создание магазина</DialogTitle>
