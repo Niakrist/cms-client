@@ -19,12 +19,12 @@ export function Providers({ children }: PropsWithChildren) {
 
   return (
     <QueryClientProvider client={client}>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <Toaster />
-          {children}
-        </PersistGate>
-      </Provider>
+      {/* <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}> */}
+      <Toaster />
+      {children}
+      {/* </PersistGate>
+      </Provider> */}
     </QueryClientProvider>
   )
 }
