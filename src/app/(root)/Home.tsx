@@ -1,4 +1,3 @@
-import React from 'react'
 import { Hero } from './Hero/Hero'
 import { IProduct } from '@/shared/types/product.interface'
 import { Catalog } from '@/components/ui/Catalog/Catalog'

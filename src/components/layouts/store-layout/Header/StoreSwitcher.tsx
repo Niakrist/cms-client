@@ -19,7 +19,7 @@ import { STORE_URL } from '@/config/url.config'
 import { IStore } from '@/shared/types/store.interface'
 import { ChevronsUpDown, Plus, StoreIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 interface IStoreSwitcherProps {
   items: IStore[]

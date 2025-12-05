@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useAuthForm } from './useAuthForm'
 
-import styles from './Auth.module.scss'
 import Image from 'next/image'
 import {
   Card,

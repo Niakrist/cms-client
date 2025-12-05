@@ -8,7 +8,7 @@ import {
 type TypeData = {
   status?: EnumOrderStatus
   items: {
-    quantiy: number
+    quantity: number
     price: number
     productId: string
     storeId: string
@@ -16,6 +16,7 @@ type TypeData = {
 }
 class OrderService {
   async place(data: TypeData) {
+    console.log('data: ', data)
     return axiosWithAuth<IPaymentResponse>({
       url: API_URL.orders('/place'),
       method: 'POST',
