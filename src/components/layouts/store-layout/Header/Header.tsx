@@ -1,7 +1,5 @@
 'use client'
-import React from 'react'
 
-import styles from './Header.module.css'
 import { MobileSidebar } from '../Sidebar/Navigation/MobileSidebar'
 import { useProfile } from '@/hooks/useProfile'
 import { DASHBOARD_URL } from '@/config/url.config'

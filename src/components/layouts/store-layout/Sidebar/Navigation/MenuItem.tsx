@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 import { IMenuItem } from './menu.interface'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'

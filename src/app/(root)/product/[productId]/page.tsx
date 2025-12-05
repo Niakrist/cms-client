@@ -13,7 +13,7 @@ export async function generateStaticParams() {
   return paths
 }
 
-export async function getProducts(params: Promise<{ productId: string }>) {
+async function fetchProductData(params: Promise<{ productId: string }>) {
   try {
     const productId = (await params).productId
     const product = await productService.getById(productId)
@@ -30,7 +30,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ productId: string }>
 }): Promise<Metadata> {
-  const { product } = await getProducts(params)
+  const { product } = await fetchProductData(params)
 
   return {
     title: product.title,
@@ -51,7 +51,7 @@ export default async function ProductPage({
 }: {
   params: Promise<{ productId: string }>
 }) {
-  const { product, similarProducts } = await getProducts(params)
+  const { product, similarProducts } = await fetchProductData(params)
   const productId = (await params).productId
   return (
     <Product

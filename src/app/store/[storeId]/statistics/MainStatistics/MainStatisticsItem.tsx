@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/static-components */
 import { IMainStatistics } from '@/shared/types/statistics.interfzce'
-import React from 'react'
 import { getIcon } from './statistics.util'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import CountUp from 'react-countup'
-import styles from './MainStatistics.module.scss'
 import { formatPrice } from '@/lib/string/format-price'
 
 interface IMainStatisticsItemProps {

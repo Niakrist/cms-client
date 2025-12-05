@@ -30,7 +30,7 @@ export function LastUsers({ data }: ILastUsersProps) {
               ) : (
                 <Image
                   className='rounded-full'
-                  src={'/images/no-user-images.png'}
+                  src={'/uploads/images/no-user-images.png'}
                   alt={'no foto'}
                   width={40}
                   height={40}
