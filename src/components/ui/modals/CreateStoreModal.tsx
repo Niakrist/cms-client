@@ -1,6 +1,6 @@
 import { useCreateStore } from '@/hooks/queries/stores/useCreateStore'
 import { IStoreCreate } from '@/shared/types/store.interface'
-import React, { PropsWithChildren, useState } from 'react'
+import { PropsWithChildren, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import {
   Dialog,

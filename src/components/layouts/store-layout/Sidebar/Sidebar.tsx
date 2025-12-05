@@ -1,6 +1,3 @@
-import React from 'react'
-
-import styles from './Sidebar.module.scss'
 import { Logo } from '../../main-layout/header/Logo/Logo'
 import Navigation from './Navigation/Navigation'
 

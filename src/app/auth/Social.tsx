@@ -1,6 +1,5 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import styles from './Auth.module.scss'
 import { Button } from '@/components/ui/Button'
 import { SERVER_URL } from '@/config/api.config'
 import { FcGoogle } from 'react-icons/fc'
